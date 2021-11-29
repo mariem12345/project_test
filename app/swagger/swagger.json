@@ -1,0 +1,139 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "API Prime",
+        "version": "0.1"
+    },
+    "servers": [
+        {
+            "url": "http://0.0.0.0:8080/",
+            "description": "An API to check if a number is prime or not"
+        }
+    ],
+    "paths": {
+        "/api/v1/primenumbers": {
+            "get": {
+                "operationId": "b8f9dc13f2186cfdf1d4215e77d8306d",
+                "responses": {
+                    "200": {
+                        "description": "The list of prime numbers we have",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Prime"
+                                    }
+                                }
+                            },
+                            "application/xml": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Prime"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/prime/{number}": {
+            "post": {
+                "operationId": "f2bbc09d9b0935fc37db33cc249c10aa",
+                "parameters": [
+                    {
+                        "name": "number",
+                        "in": "path",
+                        "description": "number es el número para ver si es primo o no. ",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Verifique si un número es primo y persígalo si es cierto",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Prime"
+                                    }
+                                }
+                            },
+                            "application/xml": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Prime"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/primenumbers/{number}": {
+            "delete": {
+                "operationId": "a6f249c1219f7c751f015d5c168a9cf5",
+                "parameters": [
+                    {
+                        "name": "number",
+                        "in": "path",
+                        "description": "number es el número para eliminar si es primo o no. ",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Verifique si un número es primo y persígalo si es cierto",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Prime"
+                                    }
+                                }
+                            },
+                            "application/xml": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Prime"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Prime": {
+                "properties": {
+                    "id": {
+                        "type": "integer"
+                    },
+                    "number": {
+                        "type": "integer"
+                    },
+                    "prime": {
+                        "type": "boolean"
+                    }
+                },
+                "type": "object"
+            }
+        }
+    }
+}
